@@ -1,6 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { GasTransaction } from "../types";
+import Pagination from "./Pagination";
 
 interface GasTransactionTableProps {
   transactions: GasTransaction[];
@@ -15,6 +16,9 @@ const GasTransactionTable: React.FC<GasTransactionTableProps> = ({
   error,
   chainId,
 }) => {
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const [pageSize, setPageSize] = React.useState(10);
+  const totalPages = Math.ceil(transactions.length / pageSize);
   const { t } = useTranslation();
   if (loading) {
     return (
@@ -120,7 +124,9 @@ const GasTransactionTable: React.FC<GasTransactionTableProps> = ({
             </tr>
           </thead>
           <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-            {transactions.map((transaction, index) => (
+            {transactions
+              .slice((currentPage - 1) * pageSize, currentPage * pageSize)
+              .map((transaction, index) => (
               <tr key={index} className="hover:bg-gray-50 dark:hover:bg-gray-700">
                 <td className="px-4 py-2 whitespace-nowrap text-xs text-gray-500 dark:text-gray-300">
                   {new Date(transaction.block_timestamp).toLocaleString("zh-CN")}
@@ -149,6 +155,13 @@ const GasTransactionTable: React.FC<GasTransactionTableProps> = ({
           </tbody>
         </table>
       </div>
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={setCurrentPage}
+        pageSize={pageSize}
+        onPageSizeChange={setPageSize}
+      />
     </div>
   );
 };

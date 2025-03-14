@@ -71,6 +71,12 @@
     "tx_count": "Transaction Count",
     "description": "Shows the distribution of gas consumption by transaction type"
   },
+  "pagination": {
+    "previous": "Previous",
+    "next": "Next",
+    "items_per_page": "items per page",
+    "page_info": "Page {{current}} of {{total}}"
+  },
   "transaction_table": {
     "time": "Time",
     "tx_hash": "Transaction Hash",
