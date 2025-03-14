@@ -22,25 +22,20 @@ const TimeRangeSelector: React.FC<TimeRangeSelectorProps> = ({
   ];
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
-      <h2 className="text-lg font-medium text-gray-900 dark:text-white mb-4">
-        {t("time_range.title")}
-      </h2>
-      <div className="flex flex-wrap gap-2">
-        {timeRangeOptions.map((range) => (
-          <button
-            key={range.value}
-            onClick={() => onSelectTimeRange(range.value)}
-            className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-              selectedTimeRange === range.value
-                ? "bg-blue-600 text-white"
-                : "bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-600"
-            }`}
-          >
-            {range.label}
-          </button>
-        ))}
-      </div>
+    <div className="flex flex-wrap gap-2">
+      {timeRangeOptions.map((range) => (
+        <button
+          key={range.value}
+          onClick={() => onSelectTimeRange(range.value)}
+          className={`px-3 py-1 rounded text-xs font-medium transition-colors ${
+            selectedTimeRange === range.value
+              ? "bg-blue-600 text-white"
+              : "bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-600"
+          }`}
+        >
+          {range.label}
+        </button>
+      ))}
     </div>
   );
 };
