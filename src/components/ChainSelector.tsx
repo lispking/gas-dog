@@ -1,6 +1,5 @@
 import React from "react";
 import { SUPPORTED_CHAINS } from "../contexts/WalletContext";
-import { useWallet } from "../contexts/WalletContext";
 
 interface ChainSelectorProps {
   selectedChainId: number;

@@ -1,5 +1,6 @@
 import React from "react";
 import { GasSummary } from "../types";
+import { useTranslation } from "react-i18next";
 
 interface GasSummaryStatsProps {
   summaryData: GasSummary[];
@@ -12,6 +13,8 @@ const GasSummaryStats: React.FC<GasSummaryStatsProps> = ({
   loading,
   error,
 }) => {
+  const { t } = useTranslation();
+
   if (loading) {
     return (
       <div className="flex justify-center items-center h-64">
@@ -23,7 +26,7 @@ const GasSummaryStats: React.FC<GasSummaryStatsProps> = ({
   if (error) {
     return (
       <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-        <strong className="font-bold">错误：</strong>
+        <strong className="font-bold">{t('common.error')}</strong>
         <span className="block sm:inline">{error}</span>
       </div>
     );
@@ -32,7 +35,7 @@ const GasSummaryStats: React.FC<GasSummaryStatsProps> = ({
   if (summaryData.length === 0) {
     return (
       <div className="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded relative" role="alert">
-        <span className="block sm:inline">没有找到汇总数据。请确保您的钱包地址在所选区块链上有交易。</span>
+        <span className="block sm:inline">{t('transaction_table.no_transactions')}</span>
       </div>
     );
   }
@@ -54,14 +57,14 @@ const GasSummaryStats: React.FC<GasSummaryStatsProps> = ({
         <svg className="w-6 h-6 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
         </svg>
-        Gas 消耗汇总
+        {t('gas_summary.title')}
       </h2>
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-4 transform transition-all duration-300 hover:scale-105 hover:shadow-lg border border-blue-100 dark:border-blue-900">
           <div className="flex items-center justify-between mb-2">
             <h3 className="text-sm font-semibold text-gray-600 dark:text-gray-300">
-              总交易数
+            {t('gas_summary.total_transactions')}
             </h3>
             <span className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900">
               <svg className="w-4 h-4 text-blue-600 dark:text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -77,7 +80,7 @@ const GasSummaryStats: React.FC<GasSummaryStatsProps> = ({
         <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-4 transform transition-all duration-300 hover:scale-105 hover:shadow-lg border border-green-100 dark:border-green-900">
           <div className="flex items-center justify-between mb-2">
             <h3 className="text-sm font-semibold text-gray-600 dark:text-gray-300">
-              平均 Gas 消耗
+            {t('gas_summary.avg_per_tx')} Gas
             </h3>
             <span className="flex items-center justify-center w-8 h-8 rounded-full bg-green-100 dark:bg-green-900">
               <svg className="w-4 h-4 text-green-600 dark:text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -89,14 +92,14 @@ const GasSummaryStats: React.FC<GasSummaryStatsProps> = ({
             {formatMonad(avgGasPerTx)}
           </p>
           <p className="text-sm text-green-500 dark:text-green-300">
-            MON / 交易
+            MON
           </p>
         </div>
 
         <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-4 transform transition-all duration-300 hover:scale-105 hover:shadow-lg border border-purple-100 dark:border-purple-900">
           <div className="flex items-center justify-between mb-2">
             <h3 className="text-sm font-semibold text-gray-600 dark:text-gray-300">
-              最高单笔 Gas
+            {t('gas_summary.max_per_tx')} Gas
             </h3>
             <span className="flex items-center justify-center w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900">
               <svg className="w-4 h-4 text-purple-600 dark:text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -115,7 +118,7 @@ const GasSummaryStats: React.FC<GasSummaryStatsProps> = ({
         <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-4 transform transition-all duration-300 hover:scale-105 hover:shadow-lg border border-orange-100 dark:border-orange-900">
           <div className="flex items-center justify-between mb-2">
             <h3 className="text-sm font-semibold text-gray-600 dark:text-gray-300">
-              总 Gas 消耗
+            {t('gas_summary.total_gas')}
             </h3>
             <span className="flex items-center justify-center w-8 h-8 rounded-full bg-orange-100 dark:bg-orange-900">
               <svg className="w-4 h-4 text-orange-600 dark:text-orange-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
