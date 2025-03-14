@@ -61,6 +61,14 @@
     "avg_per_tx": "平均每笔",
     "max_per_tx": "最高单笔"
   },
+  "gas_trend": {
+    "title": "Gas 趋势图",
+    "description": "显示不同时间段的 Gas 消耗趋势"
+  },
+  "transaction_type": {
+    "title": "交易类型分布",
+    "description": "显示不同类型交易的 Gas 消耗占比"
+  },
   "transaction_table": {
     "time": "时间",
     "tx_hash": "交易哈希",

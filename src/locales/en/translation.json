@@ -61,6 +61,14 @@
     "avg_per_tx": "Avg per Tx",
     "max_per_tx": "Max per Tx"
   },
+  "gas_trend": {
+    "title": "Gas Trend Chart",
+    "description": "Shows gas consumption trends over different time periods"
+  },
+  "transaction_type": {
+    "title": "Transaction Type Distribution",
+    "description": "Shows the distribution of gas consumption by transaction type"
+  },
   "transaction_table": {
     "time": "Time",
     "tx_hash": "Transaction Hash",
