@@ -1,0 +1,40 @@
+{
+  "name": "evm_gas_tracker_flipside",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@flipsidecrypto/sdk": "^2.0.0",
+    "@headlessui/react": "^2.0.0",
+    "@heroicons/react": "^2.0.0",
+    "ethers": "^5.7.2",
+    "i18next": "^23.0.0",
+    "react": "^18.2.0",
+    "react-calendar-heatmap": "^1.10.0",
+    "react-dom": "^18.2.0",
+    "react-i18next": "^13.0.0",
+    "react-router-dom": "^6.10.0",
+    "react-tooltip": "^5.28.0",
+    "recharts": "^2.5.0",
+    "web3modal": "^1.9.12"
+  },
+  "devDependencies": {
+    "@types/eslint": "^9.6.1",
+    "@types/node": "^18.15.11",
+    "@types/react": "^18.0.28",
+    "@types/react-calendar-heatmap": "^1.9.0",
+    "@types/react-dom": "^18.0.11",
+    "@vitejs/plugin-react": "^3.1.0",
+    "autoprefixer": "^10.4.14",
+    "date-fns": "^4.1.0",
+    "postcss": "^8.4.21",
+    "react-heatmap-grid": "^0.9.1",
+    "tailwindcss": "^3.3.1",
+    "typescript": "^5.0.4",
+    "vite": "^4.2.1"
+  }
+}

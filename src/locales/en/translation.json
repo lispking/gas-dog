@@ -1,0 +1,132 @@
+{
+  "common": {
+    "connect_wallet": "Connect Wallet",
+    "connecting": "Connecting...",
+    "disconnect": "Disconnect",
+    "wallet_address": "Wallet Address",
+    "error": "Error",
+    "loading": "Loading",
+    "no_data": "No data available",
+    "dashboard": "Dashboard",
+    "subscription": "Subscription"
+  },
+  "navbar": {
+    "title": "EVM Gas Tracker"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "terms": "Terms",
+    "privacy": "Privacy Policy",
+    "contact": "Contact Us"
+  },
+  "dashboard": {
+    "title": "Gas Tracking Dashboard",
+    "welcome_title": "EVM Gas Tracker",
+    "welcome_subtitle": "Track and analyze your gas consumption across multiple EVM-compatible blockchains",
+    "connect_prompt": "Connect your wallet to get started",
+    "connect_description": "Connect your crypto wallet to view your gas usage on Ethereum, Polygon, Arbitrum, Optimism, BNB Chain, Avalanche, and Base.",
+    "feature_multichain": "Multi-chain Analysis",
+    "feature_multichain_desc": "Analyze your gas consumption across 7 different EVM-compatible blockchains in one interface.",
+    "feature_stats": "Detailed Statistics",
+    "feature_stats_desc": "View detailed gas consumption statistics including total, average, and maximum expenditure.",
+    "feature_history": "Historical Data",
+    "feature_history_desc": "View historical gas consumption data over different time ranges, from 1 day to 1 year.",
+    "transactions_title": "Transaction History",
+    "network": "Network",
+    "timeRange": "Time Range",
+    "transactionHistory": "Transaction History"
+  },
+  "chain_selector": {
+    "title": "Select Blockchain"
+  },
+  "time_range": {
+    "title": "Time Range",
+    "day": "1 Day",
+    "week": "7 Days",
+    "month": "30 Days",
+    "quarter": "90 Days",
+    "year": "1 Year"
+  },
+  "gas_summary": {
+    "title": "Gas Consumption Summary",
+    "total_transactions": "Total Transactions",
+    "most_active_chain": "Most Active Chain",
+    "most_expensive_chain": "Most Expensive Chain",
+    "total_gas": "Total Gas Consumption",
+    "across_chains": "Across all chains",
+    "transactions": "transactions",
+    "blockchain": "Blockchain",
+    "tx_count": "Transaction Count",
+    "total_spent": "Total Spent",
+    "avg_per_tx": "Avg per Tx",
+    "max_per_tx": "Max per Tx"
+  },
+  "transaction_table": {
+    "time": "Time",
+    "tx_hash": "Transaction Hash",
+    "gas_used": "Gas Used",
+    "gas_price": "Gas Price (Gwei)",
+    "spent": "Spent",
+    "no_transactions": "No transaction data found. Make sure your wallet address has transactions on the selected blockchain."
+  },
+  "subscription": {
+    "title": "Subscription Plans",
+    "recommended": "Recommended",
+    "per_month": "/ month",
+    "start_using": "Start Using",
+    "subscribe": "Subscribe",
+    "processing": "Processing...",
+    "current": "Current Subscription",
+    "expires": "Expires on",
+    "days_left": "days left",
+    "success": "Subscription successful",
+    "error": "Subscription failed, please try again",
+    "connect_first": "Please connect your wallet first",
+    "close": "Close",
+    "plans": {
+      "free": {
+        "name": "Free",
+        "features": [
+          "Track single wallet address",
+          "Basic gas analysis",
+          "Support for Ethereum mainnet",
+          "Last 30 days of historical data"
+        ]
+      },
+      "standard": {
+        "name": "Standard",
+        "features": [
+          "Track up to 5 wallet addresses",
+          "Detailed gas analysis and charts",
+          "Support for 3 EVM-compatible chains",
+          "Last 90 days of historical data",
+          "Daily gas usage reports"
+        ]
+      },
+      "premium": {
+        "name": "Premium",
+        "features": [
+          "Track unlimited wallet addresses",
+          "Advanced gas analysis and optimization tips",
+          "Support for all major EVM-compatible chains",
+          "One year of historical data",
+          "Real-time gas price alerts",
+          "API access"
+        ]
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "features": [
+          "Track unlimited wallet addresses",
+          "Enterprise-level gas analysis and optimization",
+          "Support for all EVM-compatible chains",
+          "Complete historical data",
+          "Custom reports and analysis",
+          "Priority support",
+          "Advanced API access"
+        ]
+      }
+    }
+
+  }
+}

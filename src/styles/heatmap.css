@@ -1,0 +1,98 @@
+/* 基础样式 */
+.react-calendar-heatmap text {
+  font-size: 10px;
+  fill: #aaa;
+}
+
+.react-calendar-heatmap .react-calendar-heatmap-small-text {
+  font-size: 5px;
+}
+
+.react-calendar-heatmap rect:hover {
+  stroke: #555;
+  stroke-width: 1px;
+}
+
+/* 空值和基础颜色 */
+.react-calendar-heatmap .color-empty {
+  fill: #eeeeee;
+}
+
+/* Gas使用量热图颜色 */
+.gas-scale-0 {
+  fill: #ebedf0;
+}
+
+.gas-scale-1 {
+  fill: #9be9a8;
+}
+
+.gas-scale-2 {
+  fill: #40c463;
+}
+
+.gas-scale-3 {
+  fill: #30a14e;
+}
+
+.gas-scale-4 {
+  fill: #216e39;
+}
+
+/* 交易数量热图颜色 */
+.tx-scale-0 {
+  fill: #ebedf0;
+  background-color: #ebedf0;
+}
+
+.tx-scale-1 {
+  fill: #9be9a8;
+  background-color: #9be9a8;
+}
+
+.tx-scale-2 {
+  fill: #40c463;
+  background-color: #40c463;
+}
+
+.tx-scale-3 {
+  fill: #30a14e;
+  background-color: #30a14e;
+}
+
+.tx-scale-4 {
+  fill: #216e39;
+  background-color: #216e39;
+}
+
+/* 适配暗色模式 */
+@media (prefers-color-scheme: dark) {
+  .react-calendar-heatmap .color-empty {
+    fill: #333333;
+  }
+  
+  .react-calendar-heatmap .tx-scale-0 {
+    fill: #2d333b;
+  }
+
+  .tx-scale-0 {
+    background-color: #161b22;
+  }
+  .color-empty {
+    fill: #161b22;
+  }
+}
+
+/* 工具提示样式 */
+.heatmap-tooltip {
+  position: absolute;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  border-radius: 6px;
+  font-size: 12px;
+  line-height: 1.4;
+  white-space: pre-line;
+  z-index: 100;
+  pointer-events: none;
+}

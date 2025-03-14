@@ -1,0 +1,132 @@
+{
+  "common": {
+    "connect_wallet": "连接钱包",
+    "connecting": "连接中...",
+    "disconnect": "断开连接",
+    "wallet_address": "钱包地址",
+    "error": "错误",
+    "loading": "加载中",
+    "no_data": "没有数据",
+    "dashboard": "仪表板",
+    "subscription": "订阅"
+  },
+  "navbar": {
+    "title": "EVM Gas 追踪器"
+  },
+  "footer": {
+    "rights": "保留所有权利",
+    "terms": "条款",
+    "privacy": "隐私政策",
+    "contact": "联系我们"
+  },
+  "dashboard": {
+    "title": "Gas 追踪仪表板",
+    "welcome_title": "EVM Gas 追踪器",
+    "welcome_subtitle": "追踪和分析您在多个 EVM 兼容区块链上的 Gas 消耗情况",
+    "connect_prompt": "连接您的钱包开始",
+    "connect_description": "连接您的加密钱包以查看您在 Ethereum、Polygon、Arbitrum、Optimism、BNB Chain、Avalanche 和 Base 上的 Gas 消耗情况。",
+    "feature_multichain": "多链分析",
+    "feature_multichain_desc": "在一个界面中分析您在 7 个不同 EVM 兼容区块链上的 Gas 消耗情况。",
+    "feature_stats": "详细统计",
+    "feature_stats_desc": "查看详细的 Gas 消耗统计数据，包括总消耗、平均消耗和最高消耗。",
+    "feature_history": "历史数据",
+    "feature_history_desc": "查看不同时间范围内的历史 Gas 消耗数据，从 1 天到 1 年不等。",
+    "transactions_title": "交易历史",
+    "network": "网络",
+    "timeRange": "时间范围",
+    "transactionHistory": "交易历史"
+  },
+  "chain_selector": {
+    "title": "选择区块链"
+  },
+  "time_range": {
+    "title": "时间范围",
+    "day": "1天",
+    "week": "7天",
+    "month": "30天",
+    "quarter": "90天",
+    "year": "1年"
+  },
+  "gas_summary": {
+    "title": "Gas 消耗汇总",
+    "total_transactions": "总交易数",
+    "most_active_chain": "最活跃链",
+    "most_expensive_chain": "最昂贵链",
+    "total_gas": "总 Gas 消耗",
+    "across_chains": "跨所有链",
+    "transactions": "交易",
+    "blockchain": "区块链",
+    "tx_count": "交易数",
+    "total_spent": "总消耗",
+    "avg_per_tx": "平均每笔",
+    "max_per_tx": "最高单笔"
+  },
+  "transaction_table": {
+    "time": "时间",
+    "tx_hash": "交易哈希",
+    "gas_used": "Gas 使用量",
+    "gas_price": "Gas 价格 (Gwei)",
+    "spent": "花费",
+    "no_transactions": "没有找到交易数据。请确保您的钱包地址在所选区块链上有交易。"
+  },
+  "subscription": {
+    "title": "订阅计划",
+    "recommended": "推荐",
+    "per_month": "/ 月",
+    "start_using": "开始使用",
+    "subscribe": "订阅",
+    "processing": "处理中...",
+    "current": "当前订阅",
+    "expires": "到期时间",
+    "days_left": "天后",
+    "success": "订阅成功",
+    "error": "订阅失败，请重试",
+    "connect_first": "请先连接钱包",
+    "close": "关闭",
+    "plans": {
+      "free": {
+        "name": "免费版",
+        "features": [
+          "追踪单个钱包地址",
+          "基本燃气分析",
+          "支持以太坊主网",
+          "最近30天的历史数据"
+        ]
+      },
+      "standard": {
+        "name": "标准版",
+        "features": [
+          "追踪最多5个钱包地址",
+          "详细的燃气分析和图表",
+          "支持3个EVM兼容链",
+          "最近90天的历史数据",
+          "每日燃气使用报告"
+        ]
+      },
+      "premium": {
+        "name": "高级版",
+        "features": [
+          "追踪无限钱包地址",
+          "高级燃气分析和优化建议",
+          "支持所有主要EVM兼容链",
+          "一年的历史数据",
+          "实时燃气价格提醒",
+          "API访问"
+        ]
+      },
+      "enterprise": {
+        "name": "企业版",
+        "features": [
+          "追踪无限钱包地址",
+          "企业级燃气分析和优化",
+          "支持所有EVM兼容链",
+          "完整历史数据",
+          "自定义报告和分析",
+          "优先支持",
+          "高级API访问"
+        ]
+      }
+    }
+
+  }
+}

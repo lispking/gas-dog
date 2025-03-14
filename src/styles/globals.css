@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Calendar Heatmap Custom Colors */
+.react-calendar-heatmap .color-empty {
+  fill: #ebedf0;
+}
+
+.react-calendar-heatmap .color-scale-1 {
+  fill: #9be9a8;
+}
+
+.react-calendar-heatmap .color-scale-2 {
+  fill: #40c463;
+}
+
+.react-calendar-heatmap .color-scale-3 {
+  fill: #30a14e;
+}
+
+.react-calendar-heatmap .color-scale-4 {
+  fill: #216e39;
+}
+
+.react-calendar-heatmap text {
+  font-size: 12px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  fill: #57606a;
+}
+
+.react-calendar-heatmap rect {
+  rx: 2;
+  ry: 2;
+  stroke: #1b1f2326;
+  stroke-width: 1px;
+  transition: all 0.2s ease;
+}
+
+/* Dark mode support */
+.dark .react-calendar-heatmap .color-empty {
+  fill: #2d333b;
+}
+
+.dark .react-calendar-heatmap text {
+  fill: #8b949e;
+}
+
+.react-calendar-heatmap {
+  width: 100%;
+  height: auto;
+}
+
+.react-calendar-heatmap rect:hover {
+  stroke: #1b1f23;
+  stroke-width: 2px;
+}
+
+.dark .react-calendar-heatmap rect {
+  stroke: #ffffff26;
+}
+
+.dark .react-calendar-heatmap rect:hover {
+  stroke: #ffffff;
+}
