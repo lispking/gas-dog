@@ -122,7 +122,7 @@ const Dashboard: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-8 space-y-8 max-w-7xl">
       {/* Header and Selectors */}
-      <div className="bg-vscode-panel/50 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-vscode-border hover:border-vscode-highlight transition-all duration-300 animate-fade-in">
+      {/* <div className="bg-vscode-panel/50 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-vscode-border hover:border-vscode-highlight transition-all duration-300 animate-fade-in">
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-3xl font-bold text-vscode-text-primary mb-3 flex items-center bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
@@ -140,7 +140,7 @@ const Dashboard: React.FC = () => {
             </p>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 animate-slide-up">
         <div className="card group hover:scale-[1.02] transition-transform duration-300">
@@ -191,7 +191,6 @@ const Dashboard: React.FC = () => {
             title="Gas Usage"
             transactions={transactionData} 
             loading={transactionsLoading} 
-            error={transactionsError} 
             tips="Gas"
           />
         </div>
@@ -204,7 +203,6 @@ const Dashboard: React.FC = () => {
             title="Transaction Count"
             transactions={transactionData} 
             loading={transactionsLoading} 
-            error={transactionsError} 
             tips="Transactions"
           />
         </div>

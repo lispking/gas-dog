@@ -7,11 +7,10 @@ interface TransactionHeatmapProps {
   title: string;
   transactions: GasTransaction[];
   loading?: boolean;
-  error?: Error | null;
   tips: string;
 }
 
-const TransactionHeatmap: React.FC<TransactionHeatmapProps> = ({ title, transactions, loading, error, tips }) => {
+const TransactionHeatmap: React.FC<TransactionHeatmapProps> = ({ title, transactions, loading, tips }) => {
   const getHeatmapData = () => {
     const txCountByDate = transactions.reduce((acc: { [key: string]: number }, tx) => {
       try {
@@ -39,7 +38,6 @@ const TransactionHeatmap: React.FC<TransactionHeatmapProps> = ({ title, transact
       title={title}
       data={getHeatmapData()}
       loading={loading}
-      error={error}
       tips={tips}
     />
   );

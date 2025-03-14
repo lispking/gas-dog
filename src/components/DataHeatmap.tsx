@@ -2,21 +2,17 @@ import React from 'react';
 import CalendarHeatmap from 'react-calendar-heatmap';
 import 'react-calendar-heatmap/dist/styles.css';
 import '../styles/heatmap.css';
-import { GasTransaction } from '../types';
-import { useTranslation } from 'react-i18next';
 
 interface DataHeatmapProps {
     title: string;
     data: Array<{ date: string; count: number }>;
     loading?: boolean;
     isFormat?: boolean;
-    error?: Error | null;
     tips: string;
 }
 
-const DataHeatmap: React.FC<DataHeatmapProps> = ({ title, data, loading, isFormat, error, tips }) => {
+const DataHeatmap: React.FC<DataHeatmapProps> = ({ title, data, loading, isFormat, tips }) => {
     if (loading) return <div>Loading...</div>;
-    if (error) return <div>Error: {error.message}</div>;
 
     const formatCount = (count: number) => {
         return isFormat ? (count / 1e9).toFixed(6) + ' MON' : count;

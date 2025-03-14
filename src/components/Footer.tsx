@@ -7,28 +7,8 @@ const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="text-center md:text-left mb-4 md:mb-0">
             <p className="text-sm font-mono text-vscode-text-secondary">
-              &copy; {new Date().getFullYear()} EVM Gas Tracker. 保留所有权利。
+              &copy; {new Date().getFullYear()} EVM Gas Tracker
             </p>
-          </div>
-          <div className="flex space-x-6">
-            <a
-              href="#"
-              className="text-vscode-text-secondary hover:text-vscode-text-primary font-mono"
-            >
-              条款
-            </a>
-            <a
-              href="#"
-              className="text-vscode-text-secondary hover:text-vscode-text-primary font-mono"
-            >
-              隐私政策
-            </a>
-            <a
-              href="#"
-              className="text-vscode-text-secondary hover:text-vscode-text-primary font-mono"
-            >
-              联系我们
-            </a>
           </div>
         </div>
       </div>
