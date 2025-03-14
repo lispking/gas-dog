@@ -65,27 +65,35 @@ const Dashboard: React.FC = () => {
       </div>
 
       {/* Row 2: Gas Usage Heatmap */}
-      <div className="grid grid-cols-1 gap-8 animate-slide-up" style={{ animationDelay: '200ms' }}>
-        <div className="card group hover:scale-[1.01] transition-transform duration-300">
-          <GasUsageHeatmap 
-            title="Gas Usage"
-            transactions={transactionData} 
-            loading={transactionsLoading} 
-            tips="Gas"
-          />
-        </div>
+      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:shadow-xl">
+        <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
+          <svg className="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+          Gas Usage
+        </h2>
+        <GasUsageHeatmap 
+          title=""
+          transactions={transactionData} 
+          loading={transactionsLoading} 
+          tips="Gas"
+        />
       </div>
 
       {/* Row 3: Transaction Count Heatmap */}
-      <div className="grid grid-cols-1 gap-8 animate-slide-up" style={{ animationDelay: '300ms' }}>
-        <div className="card group hover:scale-[1.01] transition-transform duration-300">
-          <TransactionHeatmap 
-            title="Transaction Count"
-            transactions={transactionData} 
-            loading={transactionsLoading} 
-            tips="Transactions"
-          />
-        </div>
+      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:shadow-xl">
+        <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
+          <svg className="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+          </svg>
+          Transaction Count
+        </h2>
+        <TransactionHeatmap 
+          title=""
+          transactions={transactionData} 
+          loading={transactionsLoading} 
+          tips="Transactions"
+        />
       </div>
 
       {/* Transaction History Table */}
@@ -94,7 +102,7 @@ const Dashboard: React.FC = () => {
           <svg className="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
           </svg>
-          {SUPPORTED_CHAINS.find((chain) => chain.id === selectedChainId)?.name || "区块链"} {t('dashboard.transactionHistory')}
+          {SUPPORTED_CHAINS.find((chain) => chain.id === selectedChainId)?.name || "BlockChain"} {t('dashboard.transactionHistory')}
         </h2>
         <GasTransactionTable
           transactions={transactionData}

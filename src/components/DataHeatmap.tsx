@@ -28,13 +28,13 @@ const DataHeatmap: React.FC<DataHeatmapProps> = ({ title, data, loading, isForma
                 <h3 className="text-base font-semibold">{title}</h3>
                 <div className="flex items-center space-x-4">
                     <div className="flex items-center text-xs">
-                        <span>Less</span>
+                        <span className="text-sm font-semibold text-gray-600 dark:text-gray-300">Less</span>
                         <div className="flex mx-1">
                             {['tx-scale-0', 'tx-scale-1', 'tx-scale-2', 'tx-scale-3', 'tx-scale-4'].map((scale) => (
                                 <div key={scale} className={`w-3 h-3 ${scale}`} />
                             ))}
                         </div>
-                        <span>More</span>
+                        <span className="text-sm font-semibold text-gray-600 dark:text-gray-300">More</span>
                     </div>
                 </div>
             </div>
