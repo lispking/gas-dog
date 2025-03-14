@@ -63,10 +63,12 @@
   },
   "gas_trend": {
     "title": "Gas Trend Chart",
+    "daily_gas_usage": "Daily Gas Usage",
     "description": "Shows gas consumption trends over different time periods"
   },
   "transaction_type": {
     "title": "Transaction Type Distribution",
+    "tx_count": "Transaction Count",
     "description": "Shows the distribution of gas consumption by transaction type"
   },
   "transaction_table": {

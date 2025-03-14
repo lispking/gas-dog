@@ -63,10 +63,12 @@
   },
   "gas_trend": {
     "title": "Gas 趋势图",
+    "daily_gas_usage": "每日燃气使用量",
     "description": "显示不同时间段的 Gas 消耗趋势"
   },
   "transaction_type": {
     "title": "交易类型分布",
+    "tx_count": "交易次数",
     "description": "显示不同类型交易的 Gas 消耗占比"
   },
   "transaction_table": {

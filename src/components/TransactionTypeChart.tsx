@@ -84,7 +84,7 @@ const TransactionTypeChart: React.FC<TransactionTypeChartProps> = ({ transaction
       },
       title: {
         display: true,
-        text: t('transaction_type.distribution')
+        text: t('transaction_type.tx_count')
       }
     }
   };
