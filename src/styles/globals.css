@@ -2,48 +2,79 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  body {
+    @apply bg-vscode-editor text-vscode-text-primary;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center px-4 py-2 bg-vscode-button text-white font-mono text-sm font-medium rounded-lg
+    hover:bg-vscode-button-hover transition-colors duration-200 ease-in-out
+    focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-vscode-highlight;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center px-4 py-2 bg-vscode-panel text-vscode-text-primary font-mono text-sm font-medium rounded-lg
+    hover:bg-vscode-tab-inactive transition-colors duration-200 ease-in-out
+    border border-vscode-border hover:border-vscode-highlight;
+  }
+
+  .card {
+    @apply bg-vscode-panel rounded-xl shadow-lg border border-vscode-border
+    hover:border-vscode-highlight transition-all duration-300 ease-in-out
+    hover:shadow-glow;
+  }
+
+  .input-field {
+    @apply bg-vscode-editor border border-vscode-border rounded-lg px-4 py-2
+    text-vscode-text-primary placeholder-vscode-text-secondary
+    focus:outline-none focus:ring-2 focus:ring-vscode-highlight focus:border-transparent
+    font-mono text-sm;
+  }
+
+  .select-field {
+    @apply bg-vscode-editor border border-vscode-border rounded-lg px-4 py-2
+    text-vscode-text-primary
+    focus:outline-none focus:ring-2 focus:ring-vscode-highlight focus:border-transparent
+    font-mono text-sm;
+  }
+}
+
 /* Calendar Heatmap Custom Colors */
 .react-calendar-heatmap .color-empty {
   fill: #ebedf0;
 }
 
 .react-calendar-heatmap .color-scale-1 {
-  fill: #9be9a8;
+  fill: #3b82f6;
 }
 
 .react-calendar-heatmap .color-scale-2 {
-  fill: #40c463;
+  fill: #2563eb;
 }
 
 .react-calendar-heatmap .color-scale-3 {
-  fill: #30a14e;
+  fill: #1d4ed8;
 }
 
 .react-calendar-heatmap .color-scale-4 {
-  fill: #216e39;
+  fill: #1e40af;
 }
 
 .react-calendar-heatmap text {
   font-size: 12px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  fill: #57606a;
+  font-family: 'JetBrains Mono', monospace;
+  fill: #9ca3af;
 }
 
 .react-calendar-heatmap rect {
-  rx: 2;
-  ry: 2;
-  stroke: #1b1f2326;
+  rx: 3;
+  ry: 3;
+  stroke: #374151;
   stroke-width: 1px;
-  transition: all 0.2s ease;
-}
-
-/* Dark mode support */
-.dark .react-calendar-heatmap .color-empty {
-  fill: #2d333b;
-}
-
-.dark .react-calendar-heatmap text {
-  fill: #8b949e;
+  transition: all 0.3s ease;
 }
 
 .react-calendar-heatmap {
@@ -52,14 +83,26 @@
 }
 
 .react-calendar-heatmap rect:hover {
-  stroke: #1b1f23;
+  stroke: #3b82f6;
   stroke-width: 2px;
+  filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.5));
 }
 
-.dark .react-calendar-heatmap rect {
-  stroke: #ffffff26;
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
 
-.dark .react-calendar-heatmap rect:hover {
-  stroke: #ffffff;
+::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4b5563;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
 }
