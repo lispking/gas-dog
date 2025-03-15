@@ -15,13 +15,13 @@ ChartJS.register(
   Legend
 );
 
-interface TransactionTypeChartProps {
+interface GasSpentChartProps {
   transactions: GasTransaction[];
   loading: boolean;
   error: string | null;
 }
 
-const TransactionTypeChart: React.FC<TransactionTypeChartProps> = ({ transactions, loading, error }) => {
+const GasSpentChart: React.FC<GasSpentChartProps> = ({ transactions, loading, error }) => {
   const { t } = useTranslation();
 
   if (loading) {
@@ -49,10 +49,10 @@ const TransactionTypeChart: React.FC<TransactionTypeChartProps> = ({ transaction
     );
   }
 
-  // 按交易类型分组
-  const typeDistribution = transactions.reduce((acc, tx) => {
+  // 按交易类型分组计算Gas消耗
+  const gasSpentDistribution = transactions.reduce((acc, tx) => {
     const type = tx.origin_function_signature || 'Transfer';
-    acc[type] = (acc[type] || 0) + 1;
+    acc[type] = (acc[type] || 0) + (tx.monad_spent / 1e9);
     return acc;
   }, {} as Record<string, number>);
 
@@ -66,11 +66,11 @@ const TransactionTypeChart: React.FC<TransactionTypeChartProps> = ({ transaction
   ];
 
   const data = {
-    labels: Object.keys(typeDistribution),
+    labels: Object.keys(gasSpentDistribution),
     datasets: [
       {
-        data: Object.values(typeDistribution),
-        backgroundColor: colors.slice(0, Object.keys(typeDistribution).length),
+        data: Object.values(gasSpentDistribution),
+        backgroundColor: colors.slice(0, Object.keys(gasSpentDistribution).length),
         borderWidth: 1
       }
     ]
@@ -84,7 +84,7 @@ const TransactionTypeChart: React.FC<TransactionTypeChartProps> = ({ transaction
       },
       title: {
         display: true,
-        text: t('transaction_type.tx_count')
+        text: t('transaction_type.gas_spent')
       }
     }
   };
@@ -114,4 +114,4 @@ const TransactionTypeChart: React.FC<TransactionTypeChartProps> = ({ transaction
   );
 };
 
-export default TransactionTypeChart;
+export default GasSpentChart;

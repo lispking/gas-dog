@@ -69,6 +69,7 @@
   "transaction_type": {
     "title": "Transaction Type Distribution",
     "tx_count": "Transaction Count",
+    "gas_spent": "Gas Spent",
     "description": "Shows the distribution of gas consumption by transaction type"
   },
   "pagination": {
@@ -80,9 +81,12 @@
   "transaction_table": {
     "time": "Time",
     "tx_hash": "Transaction Hash",
+    "from_address": "From Address",
+    "to_address": "To Address",
     "gas_used": "Gas Used",
     "gas_price": "Gas Price (Gwei)",
     "spent": "Spent",
+    "summary": "Summary",
     "no_transactions": "No transaction data found. Make sure your wallet address has transactions on the selected blockchain."
   },
   "subscription": {

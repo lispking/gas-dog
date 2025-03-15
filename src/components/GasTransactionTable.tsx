@@ -113,6 +113,12 @@ const GasTransactionTable: React.FC<GasTransactionTableProps> = ({
                 {t('transaction_table.tx_hash')}
               </th>
               <th scope="col" className="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                {t('transaction_table.from_address')}
+              </th>
+              <th scope="col" className="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                {t('transaction_table.to_address')}
+              </th>
+              <th scope="col" className="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                 {t('transaction_table.gas_used')}
               </th>
               <th scope="col" className="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
@@ -124,9 +130,14 @@ const GasTransactionTable: React.FC<GasTransactionTableProps> = ({
             </tr>
           </thead>
           <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-            {transactions
-              .slice((currentPage - 1) * pageSize, currentPage * pageSize)
-              .map((transaction, index) => (
+            {(() => {
+              const currentPageTransactions = transactions.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+              const totalGasUsed = currentPageTransactions.reduce((sum, tx) => sum + tx.gas_used, 0);
+              const averageGasPrice = currentPageTransactions.reduce((sum, tx) => sum + tx.gas_price, 0);
+              const totalSpent = currentPageTransactions.reduce((sum, tx) => sum + getGasSpentField(tx), 0);
+              
+              return [
+                ...currentPageTransactions.map((transaction, index) => (
               <tr key={index} className="hover:bg-gray-50 dark:hover:bg-gray-700">
                 <td className="px-4 py-2 whitespace-nowrap text-xs text-gray-500 dark:text-gray-300">
                   {new Date(transaction.block_timestamp).toLocaleString("zh-CN")}
@@ -141,6 +152,26 @@ const GasTransactionTable: React.FC<GasTransactionTableProps> = ({
                     {transaction.tx_hash.slice(0, 6)}...{transaction.tx_hash.slice(-4)}
                   </a>
                 </td>
+                <td className="px-4 py-2 whitespace-nowrap text-xs text-blue-500">
+                  <a 
+                    href={`${getBlockExplorerUrl()}/address/${transaction.from_address}`} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="hover:underline"
+                  >
+                    {transaction.from_address.slice(0, 6)}...{transaction.from_address.slice(-4)}
+                  </a>
+                </td>
+                <td className="px-4 py-2 whitespace-nowrap text-xs text-blue-500">
+                  <a 
+                    href={`${getBlockExplorerUrl()}/address/${transaction.to_address}`} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="hover:underline"
+                  >
+                    {transaction.to_address.slice(0, 6)}...{transaction.to_address.slice(-4)}
+                  </a>
+                </td>
                 <td className="px-4 py-2 whitespace-nowrap text-xs text-gray-500 dark:text-gray-300">
                   {transaction.gas_used.toLocaleString()}
                 </td>
@@ -151,7 +182,23 @@ const GasTransactionTable: React.FC<GasTransactionTableProps> = ({
                   {getGasSpentField(transaction)?.toFixed(6)} {getCurrencySymbol()}
                 </td>
               </tr>
-            ))}
+            )),
+                <tr key="summary" className="bg-gray-50 dark:bg-gray-700 font-semibold">
+                  <td className="px-4 py-2 whitespace-nowrap text-xs text-gray-500 dark:text-gray-300" colSpan={4}>
+                    {t('transaction_table.summary')}
+                  </td>
+                  <td className="px-4 py-2 whitespace-nowrap text-xs text-gray-500 dark:text-gray-300">
+                    {totalGasUsed.toLocaleString()}
+                  </td>
+                  <td className="px-4 py-2 whitespace-nowrap text-xs text-gray-500 dark:text-gray-300">
+                    {averageGasPrice.toFixed(2)}
+                  </td>
+                  <td className="px-4 py-2 whitespace-nowrap text-xs text-gray-500 dark:text-gray-300">
+                    {totalSpent.toFixed(6)} {getCurrencySymbol()}
+                  </td>
+                </tr>
+              ];
+            })()}
           </tbody>
         </table>
       </div>

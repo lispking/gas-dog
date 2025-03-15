@@ -69,6 +69,7 @@
   "transaction_type": {
     "title": "交易类型分布",
     "tx_count": "交易次数",
+    "gas_spent": "Gas 消耗分布",
     "description": "显示不同类型交易的 Gas 消耗占比"
   },
   "pagination": {
@@ -80,9 +81,12 @@
   "transaction_table": {
     "time": "时间",
     "tx_hash": "交易哈希",
+    "from_address": "发送地址",
+    "to_address": "接收地址",
     "gas_used": "Gas 使用量",
     "gas_price": "Gas 价格 (Gwei)",
     "spent": "花费",
+    "summary": "统计",
     "no_transactions": "没有找到交易数据。请确保您的钱包地址在所选区块链上有交易。"
   },
   "subscription": {

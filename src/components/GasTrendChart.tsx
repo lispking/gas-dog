@@ -76,7 +76,7 @@ const GasTrendChart: React.FC<GasTrendChartProps> = ({ transactions, loading, er
         label: t('gas_trend.daily_gas_usage'),
         data: Object.values(dailyGasUsage).reverse().map(value => value / 1e9),
         fill: false,
-        borderColor: 'rgb(75, 192, 192)',
+        borderColor: 'rgb(96, 111, 228)',
         tension: 0.1
       }
     ]
@@ -105,8 +105,29 @@ const GasTrendChart: React.FC<GasTrendChartProps> = ({ transactions, loading, er
   };
 
   return (
-    <div className="w-full h-[400px]">
-      <Line data={data} options={options} />
+    <div className="flex-1 min-w-0 h-[400px] p-4 transition-opacity duration-500 ease-in-out">
+      <Line
+        data={data}
+        options={{
+          ...options,
+          maintainAspectRatio: false,
+          animation: {
+            duration: 800,
+            easing: 'easeInOutQuart'
+          },
+          plugins: {
+            ...options.plugins,
+            legend: {
+              ...options.plugins.legend,
+              position: 'top',
+              align: 'center',
+              labels: {
+                padding: 20
+              }
+            }
+          }
+        }}
+      />
     </div>
   );
 };
