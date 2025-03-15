@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="text-center md:text-left mb-4 md:mb-0">
             <p className="text-sm font-mono text-vscode-text-secondary">
-              &copy; {new Date().getFullYear()} Monad Testnet Gas Tracker
+              &copy; {new Date().getFullYear()} Monad Gas Tracker
             </p>
           </div>
         </div>

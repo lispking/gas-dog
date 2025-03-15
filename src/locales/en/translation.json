@@ -11,7 +11,7 @@
     "subscription": "Subscription"
   },
   "navbar": {
-    "title": "Monad Testnet Gas Tracker"
+    "title": "Monad Gas Tracker"
   },
   "footer": {
     "rights": "All rights reserved",
@@ -21,7 +21,7 @@
   },
   "dashboard": {
     "title": "Gas Tracking Dashboard",
-    "welcome_title": "Monad Testnet Gas Tracker",
+    "welcome_title": "Monad Gas Tracker",
     "welcome_subtitle": "Track and analyze your gas consumption on Monad Testnet",
     "connect_prompt": "Connect your wallet to get started",
     "connect_description": "Connect your crypto wallet to view your gas usage on Ethereum, Polygon, Arbitrum, Optimism, BNB Chain, Avalanche, and Base.",

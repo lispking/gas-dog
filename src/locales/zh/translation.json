@@ -11,7 +11,7 @@
     "subscription": "订阅"
   },
   "navbar": {
-    "title": "Monad Testnet Gas 追踪器"
+    "title": "Monad Gas 追踪器"
   },
   "footer": {
     "rights": "保留所有权利",
@@ -21,7 +21,7 @@
   },
   "dashboard": {
     "title": "Gas 追踪仪表板",
-    "welcome_title": "Monad Testnet Gas 追踪器",
+    "welcome_title": "Monad Gas 追踪器",
     "welcome_subtitle": "追踪和分析您在 Monad 测试网上的 Gas 消耗情况",
     "connect_prompt": "连接您的钱包开始",
     "connect_description": "连接您的加密钱包以查看您在 Monad 测试网上的 Gas 消耗情况。",
