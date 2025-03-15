@@ -18,3 +18,6 @@ ignition/deployments/chain-31337
 .DS_Store
 dist/
 .openzeppelin/unknown-10143.json
+
+# Local Netlify folder
+.netlify

@@ -11,6 +11,7 @@
     "@flipsidecrypto/sdk": "^2.0.0",
     "@headlessui/react": "^2.0.0",
     "@heroicons/react": "^2.0.0",
+    "@netlify/functions": "^3.0.1",
     "chart.js": "^4.4.8",
     "ethers": "^5.7.2",
     "i18next": "^23.0.0",

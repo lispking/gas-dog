@@ -1,13 +1,22 @@
-import { Flipside, Query, QueryResultSet } from "@flipsidecrypto/sdk";
+import { Query, QueryResultSet } from "@flipsidecrypto/sdk";
 
-// Initialize with environment variable
-const API_KEY = import.meta.env.VITE_FLIPSIDE_API_KEY;
-
-export const flipside = new Flipside(API_KEY, "https://api-v2.flipsidecrypto.xyz");
+const API_ENDPOINT = "/.netlify/functions/flipside";
 
 export const executeQuery = async (query: Query): Promise<QueryResultSet> => {
   try {
-    return await flipside.query.run(query);
+    const response = await fetch(API_ENDPOINT, {
+      method: "POST",
+      body: JSON.stringify({
+        type: "executeQuery",
+        query,
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    return await response.json();
   } catch (error) {
     console.error("Error executing Flipside query:", error);
     throw error;
@@ -20,11 +29,21 @@ export const getQueryResults = async (
   pageSize: number = 1000
 ): Promise<QueryResultSet> => {
   try {
-    return await flipside.query.getQueryResults({
-      queryRunId,
-      pageNumber,
-      pageSize,
+    const response = await fetch(API_ENDPOINT, {
+      method: "POST",
+      body: JSON.stringify({
+        type: "getQueryResults",
+        queryRunId,
+        pageNumber,
+        pageSize,
+      }),
     });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    return await response.json();
   } catch (error) {
     console.error("Error getting query results:", error);
     throw error;
