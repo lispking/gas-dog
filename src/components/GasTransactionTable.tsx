@@ -163,14 +163,18 @@ const GasTransactionTable: React.FC<GasTransactionTableProps> = ({
                   </a>
                 </td>
                 <td className="px-4 py-2 whitespace-nowrap text-xs text-blue-500">
-                  <a 
-                    href={`${getBlockExplorerUrl()}/address/${transaction.to_address}`} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="hover:underline"
-                  >
-                    {transaction.to_address.slice(0, 6)}...{transaction.to_address.slice(-4)}
-                  </a>
+                  {transaction.to_address ? (
+                    <a 
+                      href={`${getBlockExplorerUrl()}/address/${transaction.to_address}`} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="hover:underline"
+                    >
+                      {transaction.to_address.slice(0, 6)}...{transaction.to_address.slice(-4)}
+                    </a>
+                  ) : (
+                    <span className="text-gray-500">-</span>
+                  )}
                 </td>
                 <td className="px-4 py-2 whitespace-nowrap text-xs text-gray-500 dark:text-gray-300">
                   {transaction.gas_used.toLocaleString()}

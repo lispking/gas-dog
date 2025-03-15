@@ -51,7 +51,7 @@ const GasSpentChart: React.FC<GasSpentChartProps> = ({ transactions, loading, er
 
   // 按交易类型分组计算Gas消耗
   const gasSpentDistribution = transactions.reduce((acc, tx) => {
-    const type = tx.to_address.slice(0, 6) + '...' + tx.to_address.slice(-4) || 'Transfer';
+    const type = tx.to_address ? `${tx.to_address.slice(0, 6)}...${tx.to_address.slice(-4)}` : 'Transfer';
     acc[type] = (acc[type] || 0) + (tx.monad_spent / 1e9);
     return acc;
   }, {} as Record<string, number>);
