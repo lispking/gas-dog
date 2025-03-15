@@ -1,5 +1,7 @@
 # Gas Dog 🐕
 
+[English](README.md) | [简体中文](README.zh.md)
+
 A Monad chain Gas fee analysis tool that helps users track and analyze Gas consumption on the Monad network.
 
 ## Features ✨

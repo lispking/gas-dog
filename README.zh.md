@@ -1,5 +1,7 @@
 # Gas Dog 🐕
 
+[English](README.md) | [简体中文](README.zh.md)
+
 一个Monad链Gas费用分析工具，帮助用户追踪和分析Monad网络上的Gas消耗情况。
 
 ## 功能特点 ✨
