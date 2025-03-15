@@ -51,7 +51,7 @@ const TransactionTypeChart: React.FC<TransactionTypeChartProps> = ({ transaction
 
   // 按交易类型分组
   const typeDistribution = transactions.reduce((acc, tx) => {
-    const type = tx.origin_function_signature || 'Transfer';
+    const type = tx.to_address.slice(0, 6) + '...' + tx.to_address.slice(-4) || 'Transfer';
     acc[type] = (acc[type] || 0) + 1;
     return acc;
   }, {} as Record<string, number>);

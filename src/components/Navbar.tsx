@@ -27,7 +27,7 @@ const Navbar: React.FC = () => {
           <div className="flex items-center space-x-4">
             <button
               onClick={() => {
-                const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(SHARE_TEXT)}&url=${encodeURIComponent(SHARE_URL)}`;
+                const twitterUrl = `https://x.com/intent/tweet?text=${encodeURIComponent(SHARE_TEXT)}&url=${encodeURIComponent(SHARE_URL)}`;
                 window.open(twitterUrl, '_blank');
               }}
               className="btn-secondary group flex items-center space-x-2 px-3 py-1.5 hover:bg-blue-500 hover:text-white transition-colors duration-300"
