@@ -53,12 +53,12 @@ const WelcomePage: React.FC<WelcomePageProps> = ({ onConnect, isConnecting }) =>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 max-w-7xl mx-auto">
           {/* Multichain Feature */}
           <div className="group bg-vscode-panel/80 backdrop-blur-sm rounded-2xl p-8 lg:p-10 transition-all duration-300 hover:scale-102 hover:shadow-2xl border border-transparent hover:border-blue-500/20">
-            <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl mb-8 transform transition-transform group-hover:rotate-6">
+            <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl mb-8 transform transition-transform group-hover:rotate-6">
               <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
               </svg>
             </div>
-            <h3 className="text-2xl font-bold text-vscode-text-primary mb-6">
+            <h3 className="text-xl font-bold text-vscode-text-primary mb-4">
               {t('dashboard.feature_multichain')}
             </h3>
             <p className="text-lg text-vscode-text-secondary leading-relaxed">
