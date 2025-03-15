@@ -1,7 +1,7 @@
 import { Flipside, Query, QueryResultSet } from "@flipsidecrypto/sdk";
 
-// Initialize with environment variable or default to empty string
-const API_KEY = "f016f680-620e-4b2b-8fde-2e144306e8fc"; // Will be provided by user at runtime
+// Initialize with environment variable
+const API_KEY = import.meta.env.VITE_FLIPSIDE_API_KEY;
 
 export const flipside = new Flipside(API_KEY, "https://api-v2.flipsidecrypto.xyz");
 

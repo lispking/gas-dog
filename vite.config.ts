@@ -11,7 +11,6 @@ export default defineConfig({
     },
   },
   define: {
-    "process.env": {},
-    "import.meta.env.VITE_FLIPSIDE_API_KEY": JSON.stringify(""),
+    "process.env": {}
   },
 });
