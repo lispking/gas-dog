@@ -9,7 +9,7 @@ interface CacheData<T> {
 const DB_NAME = 'gas-dog-cache';
 const DB_VERSION = 1;
 const STORE_NAME = 'gas-data';
-const DEFAULT_EXPIRATION = 15 * 60 * 1000; // 15 minutes
+const DEFAULT_EXPIRATION = 5 * 60 * 1000; // 15 minutes
 
 export const useIndexedDB = () => {
   const [db, setDb] = useState<IDBDatabase | null>(null);

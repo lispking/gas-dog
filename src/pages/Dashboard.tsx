@@ -54,6 +54,7 @@ const Dashboard: React.FC = () => {
             />
           </div>
         </div>
+        <div className="text-xs text-gray-500 dark:text-gray-400">{t('time_range.cache_time')}</div>
       </div>
 
       {/* Row 1: Gas Summary Stats */}
