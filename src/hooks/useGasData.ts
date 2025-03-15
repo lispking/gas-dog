@@ -6,12 +6,15 @@ import {
 } from "../queries/gasQueries";
 import { GasTransaction, GasSummary, TimeRange } from "../types";
 import { useWallet } from "../contexts/WalletContext";
+import { useIndexedDB } from "./useIndexedDB";
 
 export const useGasData = (chainId: number, timeRange: TimeRange = TimeRange.MONTH) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [data, setData] = useState<GasTransaction[]>([]);
   const { address } = useWallet();
+
+  const { getCacheKey, getFromCache, saveToCache } = useIndexedDB();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,6 +24,16 @@ export const useGasData = (chainId: number, timeRange: TimeRange = TimeRange.MON
       setError(null);
       
       try {
+        // 尝试从缓存获取数据
+        const cacheKey = getCacheKey(address, chainId, timeRange);
+        const cachedData = await getFromCache<GasTransaction[]>(cacheKey);
+        
+        if (cachedData) {
+          setData(cachedData);
+          setLoading(false);
+          return;
+        }
+
         let query;
         
         switch (chainId) {
@@ -32,7 +45,11 @@ export const useGasData = (chainId: number, timeRange: TimeRange = TimeRange.MON
         }
         
         const result = await executeQuery(query);
-        setData((result.records || []) as unknown as GasTransaction[]);
+        const newData = (result.records || []) as unknown as GasTransaction[];
+        setData(newData);
+        
+        // 保存数据到缓存
+        await saveToCache(cacheKey, newData);
       } catch (error) {
         console.error(`Error fetching gas data for chain ${chainId}:`, error);
         setError("Failed to fetch gas data");
@@ -53,6 +70,8 @@ export const useGasSummary = (timeRange: TimeRange = TimeRange.MONTH) => {
   const [data, setData] = useState<GasSummary[]>([]);
   const { address } = useWallet();
 
+  const { getCacheKey, getFromCache, saveToCache } = useIndexedDB();
+
   useEffect(() => {
     const fetchData = async () => {
       if (!address) return;
@@ -61,9 +80,23 @@ export const useGasSummary = (timeRange: TimeRange = TimeRange.MONTH) => {
       setError(null);
       
       try {
+        // 尝试从缓存获取数据
+        const cacheKey = getCacheKey(address, undefined, timeRange);
+        const cachedData = await getFromCache<GasSummary[]>(cacheKey);
+        
+        if (cachedData) {
+          setData(cachedData);
+          setLoading(false);
+          return;
+        }
+
         const query = getGasSummaryQuery(address, timeRange);
         const result = await executeQuery(query);
-        setData((result.records || []) as unknown as GasSummary[]);
+        const newData = (result.records || []) as unknown as GasSummary[];
+        setData(newData);
+        
+        // 保存数据到缓存
+        await saveToCache(cacheKey, newData);
       } catch (error) {
         console.error("Error fetching gas summary:", error);
         setError("Failed to fetch gas summary");
