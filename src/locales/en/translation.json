@@ -46,7 +46,7 @@
     "month": "30 Days",
     "quarter": "90 Days",
     "year": "1 Year",
-    "cache_time": "Data cached for 5 minutes"
+    "cache_time": "Data cached for 15 minutes"
   },
   "gas_summary": {
     "title": "Gas Consumption Summary",

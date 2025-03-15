@@ -46,7 +46,7 @@
     "month": "30天",
     "quarter": "90天",
     "year": "1年",
-    "cache_time": "数据缓存时间为5分钟"
+    "cache_time": "数据缓存时间为15分钟"
   },
   "gas_summary": {
     "title": "Gas 消耗汇总",
