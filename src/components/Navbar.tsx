@@ -3,7 +3,7 @@ import { useWallet } from "../contexts/WalletContext";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "./LanguageSwitcher";
 
-const SHARE_TEXT = "Check out EVM Gas Tracker - A powerful tool to analyze your gas consumption on Monad Testnet! 🚀";
+const SHARE_TEXT = "Check out Monad Gas Tracker - A powerful tool to analyze your gas consumption on Monad Testnet! 🚀";
 const SHARE_URL = window.location.origin;
 
 const Navbar: React.FC = () => {
