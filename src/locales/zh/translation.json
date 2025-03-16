@@ -1,5 +1,6 @@
 {
   "common": {
+    "click_to_search": "点击查询此地址",
     "connect_wallet": "连接钱包",
     "connecting": "连接中...",
     "disconnect": "断开连接",
@@ -8,10 +9,16 @@
     "loading": "加载中",
     "no_data": "没有数据",
     "dashboard": "仪表板",
-    "subscription": "订阅"
+    "subscription": "订阅",
+    "wallet_error": "钱包连接失败",
+    "chain_switch_error": "切换链失败",
+    "chain_not_supported": "不支持该链",
+    "chain_switch_success": "成功切换链"
   },
   "navbar": {
-    "title": "Monad Gas 追踪器"
+    "title": "Monad Gas 追踪器",
+    "search": "查询",
+    "search_placeholder": "输入钱包地址进行查询"
   },
   "footer": {
     "rights": "保留所有权利",

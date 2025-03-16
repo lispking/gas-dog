@@ -12,6 +12,7 @@ interface WalletContextType {
   switchChain: (chainId: number) => Promise<void>;
   isConnecting: boolean;
   error: string | null;
+  setAddress: (address: string) => void;
 }
 
 const WalletContext = createContext<WalletContextType>({
@@ -23,6 +24,7 @@ const WalletContext = createContext<WalletContextType>({
   switchChain: async () => {},
   isConnecting: false,
   error: null,
+  setAddress: () => {},
 });
 
 export const useWallet = () => useContext(WalletContext);
@@ -202,6 +204,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         switchChain,
         isConnecting,
         error,
+        setAddress
       }}
     >
       {children}

@@ -1,5 +1,6 @@
 {
   "common": {
+    "click_to_search": "Click to search this address",
     "connect_wallet": "Connect Wallet",
     "connecting": "Connecting...",
     "disconnect": "Disconnect",
@@ -8,10 +9,16 @@
     "loading": "Loading",
     "no_data": "No data available",
     "dashboard": "Dashboard",
-    "subscription": "Subscription"
+    "subscription": "Subscription",
+    "wallet_error": "Failed to connect wallet",
+    "chain_switch_error": "Failed to switch chain",
+    "chain_not_supported": "Chain not supported",
+    "chain_switch_success": "Chain switched successfully"
   },
   "navbar": {
-    "title": "Monad Gas Tracker"
+    "title": "Monad Gas Tracker",
+    "search": "Search",
+    "search_placeholder": "Enter wallet address to search"
   },
   "footer": {
     "rights": "All rights reserved",
