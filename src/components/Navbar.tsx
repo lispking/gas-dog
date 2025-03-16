@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useWallet } from "../contexts/WalletContext";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -8,14 +8,22 @@ const SHARE_TEXT = "Check out Monad Gas Tracker - A powerful tool to analyze you
 const SHARE_URL = window.location.origin;
 
 const Navbar: React.FC = () => {
-  const { address, connect, disconnect, isConnecting, setAddress } = useWallet();
+  const { address, searchAddress, connect, disconnect, isConnecting, setSearchAddress } = useWallet();
   const { t } = useTranslation();
-  const [searchAddress, setSearchAddress] = useState<string>("");
 
   const handleSearch = () => {
-    if (ethers.utils.isAddress(searchAddress)) {
-      setAddress(searchAddress);
+    console.log('click', searchAddress)
+    if (!searchAddress) {
+      return;
     }
+    if (!ethers.utils.isAddress(searchAddress)) {
+      // 如果地址格式不正确，可以添加提示
+      alert(t("common.invalid_address"));
+      return;
+    }
+    // 强制触发地址更新
+    setSearchAddress("");
+    setTimeout(() => setSearchAddress(searchAddress), 0);
   };
 
   return (
@@ -36,19 +44,19 @@ const Navbar: React.FC = () => {
             <div className="relative flex items-center">
               <input
                 type="text"
-                value={searchAddress}
+                value={searchAddress || ''}
                 onChange={(e) => setSearchAddress(e.target.value)}
                 placeholder={t("navbar.search_placeholder")}
                 className="w-96 px-4 py-2 bg-vscode-panel rounded-lg border border-vscode-border text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700"
               />
               <button
                 onClick={handleSearch}
-                className="ml-2 px-3 py-1.5 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-300 flex items-center space-x-1"
+                className="ml-2 p-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition-colors duration-300 flex items-center justify-center"
+                title={t("navbar.search")}
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
-                <span>{t("navbar.search")}</span>
               </button>
             </div>
             <button

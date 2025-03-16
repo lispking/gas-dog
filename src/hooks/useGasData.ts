@@ -12,20 +12,20 @@ export const useGasData = (chainId: number, timeRange: TimeRange = TimeRange.MON
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [data, setData] = useState<GasTransaction[]>([]);
-  const { address } = useWallet();
+  const { searchAddress } = useWallet();
 
   const { getCacheKey, getFromCache, saveToCache } = useIndexedDB();
 
   useEffect(() => {
     const fetchData = async () => {
-      if (!address) return;
+      if (!searchAddress) return;
       
       setLoading(true);
       setError(null);
       
       try {
         // 尝试从缓存获取数据
-        const cacheKey = getCacheKey(address, chainId, timeRange);
+        const cacheKey = getCacheKey(searchAddress, chainId, timeRange);
         const cachedData = await getFromCache<GasTransaction[]>(cacheKey);
         
         if (cachedData) {
@@ -38,7 +38,7 @@ export const useGasData = (chainId: number, timeRange: TimeRange = TimeRange.MON
         
         switch (chainId) {
           case 10143: // Monad Testnet
-            query = getMonadTestnetGasQuery(address, timeRange);
+            query = getMonadTestnetGasQuery(searchAddress, timeRange);
             break;
           default:
             throw new Error(`Chain ID ${chainId} not supported`);
@@ -59,7 +59,7 @@ export const useGasData = (chainId: number, timeRange: TimeRange = TimeRange.MON
     };
 
     fetchData();
-  }, [address, chainId, timeRange]);
+  }, [searchAddress, chainId, timeRange]);
 
   return { data, loading, error };
 };
@@ -68,20 +68,20 @@ export const useGasSummary = (timeRange: TimeRange = TimeRange.MONTH) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [data, setData] = useState<GasSummary[]>([]);
-  const { address } = useWallet();
+  const { searchAddress } = useWallet();
 
   const { getCacheKey, getFromCache, saveToCache } = useIndexedDB();
 
   useEffect(() => {
     const fetchData = async () => {
-      if (!address) return;
+      if (!searchAddress) return;
       
       setLoading(true);
       setError(null);
       
       try {
         // 尝试从缓存获取数据
-        const cacheKey = getCacheKey(address, undefined, timeRange);
+        const cacheKey = getCacheKey(searchAddress, undefined, timeRange);
         const cachedData = await getFromCache<GasSummary[]>(cacheKey);
         
         if (cachedData) {
@@ -90,7 +90,7 @@ export const useGasSummary = (timeRange: TimeRange = TimeRange.MONTH) => {
           return;
         }
 
-        const query = getGasSummaryQuery(address, timeRange);
+        const query = getGasSummaryQuery(searchAddress, timeRange);
         const result = await executeQuery(query);
         const newData = (result.records || []) as unknown as GasSummary[];
         setData(newData);
@@ -106,7 +106,7 @@ export const useGasSummary = (timeRange: TimeRange = TimeRange.MONTH) => {
     };
 
     fetchData();
-  }, [address, timeRange]);
+  }, [searchAddress, timeRange]);
 
   return { data, loading, error };
 };

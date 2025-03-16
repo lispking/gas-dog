@@ -13,7 +13,8 @@
     "wallet_error": "Failed to connect wallet",
     "chain_switch_error": "Failed to switch chain",
     "chain_not_supported": "Chain not supported",
-    "chain_switch_success": "Chain switched successfully"
+    "chain_switch_success": "Chain switched successfully",
+    "invalid_address": "Invalid wallet address format"
   },
   "navbar": {
     "title": "Monad Gas Tracker",

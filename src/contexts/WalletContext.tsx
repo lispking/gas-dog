@@ -5,6 +5,7 @@ import { ChainConfig } from "../types";
 
 interface WalletContextType {
   address: string | null;
+  searchAddress: string | null;
   chainId: number | null;
   provider: ethers.providers.Web3Provider | null;
   connect: () => Promise<void>;
@@ -12,11 +13,12 @@ interface WalletContextType {
   switchChain: (chainId: number) => Promise<void>;
   isConnecting: boolean;
   error: string | null;
-  setAddress: (address: string) => void;
+  setSearchAddress: (address: string) => void;
 }
 
 const WalletContext = createContext<WalletContextType>({
   address: null,
+  searchAddress: null,
   chainId: null,
   provider: null,
   connect: async () => {},
@@ -24,7 +26,7 @@ const WalletContext = createContext<WalletContextType>({
   switchChain: async () => {},
   isConnecting: false,
   error: null,
-  setAddress: () => {},
+  setSearchAddress: () => {},
 });
 
 export const useWallet = () => useContext(WalletContext);
@@ -103,6 +105,7 @@ export const SUPPORTED_CHAINS: ChainConfig[] = [
 export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
   const [web3Modal, setWeb3Modal] = useState<Web3Modal | null>(null);
   const [address, setAddress] = useState<string | null>(null);
+  const [searchAddress, setSearchAddress] = useState<string | null>(null);
   const [chainId, setChainId] = useState<number | null>(null);
   const [provider, setProvider] = useState<ethers.providers.Web3Provider | null>(null);
   const [isConnecting, setIsConnecting] = useState(false);
@@ -135,6 +138,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       
       setProvider(provider);
       setAddress(accounts[0]);
+      setSearchAddress(accounts[0]);
       setChainId(network.chainId);
       
       instance.on("accountsChanged", (accounts: string[]) => {
@@ -197,6 +201,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
     <WalletContext.Provider
       value={{
         address,
+        searchAddress,
         chainId,
         provider,
         connect,
@@ -204,7 +209,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
         switchChain,
         isConnecting,
         error,
-        setAddress
+        setSearchAddress
       }}
     >
       {children}
