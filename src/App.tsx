@@ -9,8 +9,8 @@ const App: React.FC = () => {
     <Router>
       <div className="min-h-screen bg-gradient-to-b from-vscode-editor to-vscode-panel flex flex-col">
         <Navbar />
-        <main className="container mx-auto px-4 py-6 flex-grow font-mono text-vscode-text-primary">
-          <div className="space-y-6 animate-fade-in">
+        <main className="container mx-auto px-4 py-4 flex-grow font-mono text-vscode-text-primary">
+          <div className="space-y-4 animate-fade-in">
             <Routes>
               <Route path="/" element={<Dashboard />} />
             </Routes>

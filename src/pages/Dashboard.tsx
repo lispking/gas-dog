@@ -35,10 +35,10 @@ const Dashboard: React.FC = () => {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8 space-y-8 max-w-7xl">
+    <div className="container mx-auto px-4 space-y-4 max-w-7xl">
       {/* Selectors */}
       <div className="flex items-center justify-between mb-6 bg-white dark:bg-gray-800 rounded-lg p-3 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow duration-300">
-        <div className="flex items-center space-x-6">
+        <div className="flex items-center space-x-4">
           <div className="flex items-center space-x-2">
             <span className="text-sm font-medium text-gray-600 dark:text-gray-400">{t('dashboard.network')}:</span>
             <ChainSelector
