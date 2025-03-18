@@ -4,6 +4,8 @@
 
 A Monad chain Gas fee analysis tool that helps users track and analyze Gas consumption on the Monad network.
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4cf26aaf-d9f2-450a-b1d9-0fcac00b31b6/deploy-status)](https://app.netlify.com/sites/gas-dog/deploys)
+
 ## Features ✨
 
 - 🔍 Monad chain Gas fee tracking and analysis

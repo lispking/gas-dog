@@ -4,6 +4,8 @@
 
 一个Monad链Gas费用分析工具，帮助用户追踪和分析Monad网络上的Gas消耗情况。
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4cf26aaf-d9f2-450a-b1d9-0fcac00b31b6/deploy-status)](https://app.netlify.com/sites/gas-dog/deploys)
+
 ## 功能特点 ✨
 
 - 🔍 Monad链Gas费用追踪和分析
