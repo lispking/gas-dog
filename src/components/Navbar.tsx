@@ -12,7 +12,6 @@ const Navbar: React.FC = () => {
   const { t } = useTranslation();
 
   const handleSearch = () => {
-    console.log('click', searchAddress)
     if (!searchAddress) {
       return;
     }
