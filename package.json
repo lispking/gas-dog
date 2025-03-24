@@ -1,5 +1,5 @@
 {
-  "name": "evm_gas_tracker_flipside",
+  "name": "gas-dog",
   "version": "1.0.0",
   "private": true,
   "scripts": {
